@@ -1,5 +1,11 @@
+import { StepOneForm } from "../../components/StepOneForm";
+import Stepper from "../../components/Stepper";
+
 export const ProfileCreation = () => {
   return (
-    <div>Profile Creation</div>
+    <div className={''}>
+      <Stepper step={1} />
+      <StepOneForm />
+    </div>
   )
 }
