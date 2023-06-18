@@ -2,8 +2,6 @@ import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../features/user/userSlice";
-import {useState} from "react";
-import PhoneInput from "react-phone-number-input/input";
 
 export const StartForm = () => {
   const navigate = useNavigate();
@@ -27,7 +25,6 @@ export const StartForm = () => {
     dispatch(login(data));
     navigate('/create');
   }
-  const [phone, setPhone] = useState('')
 
   return (
     <form
@@ -40,25 +37,6 @@ export const StartForm = () => {
             Номер телефона
           </label>
         </div>
-        <PhoneInput
-          onChange={setPhone}
-          name={'phoneNumber'}
-          // international={false}
-          value={phone}
-          {...register('phoneNumber', {
-            required: 'Обязательное поле для заполнения',
-            pattern: {
-              value: /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
-              message: 'Введите корректный номер телефона'
-            },
-            // pattern: {
-            //   value: /^\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}$/,
-            //   message: 'Введите номер в формате +7 (900) 000-00-00',
-            // },
-          })
-          }
-          className={"text-sm border border-gray-300 p-2 w-2/4 rounded"}
-        />
         <input
           placeholder={"+7 (___) ___-__-__"}
           name={'phoneNumber'}
